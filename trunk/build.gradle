@@ -1,0 +1,41 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+// Gradle war -Denv=local
+def env = System.getProperty("env")?:"local"
+
+repositories {
+    mavenCentral()
+    //flatDir dirs: "lib"
+}
+
+sourceSets {
+    main {
+        resources {
+            exclude "src/main/resources"
+            srcDirs = ["src/main/resources/public", "src/main/resources/$env"]
+        }
+    }
+}
+
+dependencies {
+    // 自定义引包
+    //compile fileTree(dir: 'lib', includes: ['*.jar'])
+
+    // Junit
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    // Logger
+    compile 'log4j:log4j:1.2.16'
+}
+
+// Gathering all dependencies libraries JARs in one folder
+task copyToLib(type: Copy) {
+    from configurations.runtime
+    into "src/main/webapp/WEB-INF/lib"
+}
