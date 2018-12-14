@@ -31,7 +31,7 @@ public class ChatFrame
 	 */
 	private static final long serialVersionUID = 1399044476804987597L;
 
-	private static Logger LOGGER = Logger.getLogger(Main.class);
+	private static Logger LOGGER = Logger.getLogger(ClientMain.class);
 	private TextField input = new TextField();
 	private TextArea contentShow = new TextArea();
 	private Socket socket;

@@ -23,7 +23,7 @@ public class ChatServer {
 
 	// ---------------------------------- field names ---------------------------------- 
 
-	private static Logger LOGGER = Logger.getLogger(Main.class);
+	private static Logger LOGGER = Logger.getLogger(ServerMain.class);
 	boolean started = false;
 	ServerSocket serverSocket = null;
 

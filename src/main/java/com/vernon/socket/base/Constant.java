@@ -27,7 +27,7 @@ public class Constant
 
 	public static String HOST = "http://www.vernon.com";
 
-	public static int PORT = 80;
+	public static int PORT = 8099;
 
 	private static Properties properties = new Properties();
 
